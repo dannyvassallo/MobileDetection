@@ -7,8 +7,8 @@
   <title>Radio Disney Mobile Detection Script</title>
   <meta name="description" content="iOS or Android Detection Script">
   <meta name="author" content="Danny Vassallo">
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
 <!-- GOOGLE ANALYTICS BEGIN -->
 <script>
@@ -26,10 +26,50 @@
 
 <!-- ERROR STYLES -->
 <style>
-body{ background-color: black;}
-.wrap{ max-width:600px; margin: 50px auto; text-align: center;}
-i{ color: #fff; font-size: 250px;}
-#error{ max-width: 600px; font-size: 20px; color: #fff;}
+body{
+  background-image: url('https://s3.amazonaws.com/myfangate.com/radiodisneyapp/triangular.png');
+  background-repeat: repeat;
+}
+.wrap{
+  max-width:640px;
+  margin: 50px auto;
+  text-align: center;
+}
+i{
+  color: #fff;
+  font-size: 250px;
+}
+
+#error{
+  width: 640px;
+  font-size: 20px;
+  background-color: #fff;
+  border-radius: 75px;
+}
+img#disney{
+  padding: 50px 0 10px 0;
+}
+
+@font-face {
+  font-family: 'PlacardMT-BoldCondensed';
+  src: url("https://s3.amazonaws.com/myfangate.com/rdpuzzle/fonts/PlacardMT-BoldCondensed.eot?") format("eot"), url("https://s3.amazonaws.com/myfangate.com/rdpuzzle/fonts/PlacardMT-BoldCondensed.woff") format("woff"), url("https://s3.amazonaws.com/myfangate.com/rdpuzzle/fonts/PlacardMT-BoldCondensed.ttf") format("truetype"), url("https://s3.amazonaws.com/myfangate.com/rdpuzzle/fonts/PlacardMT-BoldCondensed.svg#PlacardMT-BoldCondensed") format("svg"); }
+h1{
+  font-family: 'PlacardMT-BoldCondensed';
+  text-transform: uppercase;
+}
+#logowrap{
+  width: 640px;
+  height: 87px;
+  padding: 0 0 100px 0;
+}
+.apple{
+  width: 50%;
+  float: left;
+}
+.google{
+  width: 50%;
+  float: right;
+}
 </style>
 <!-- END ERROR STYLES -->
 
@@ -39,8 +79,18 @@ i{ color: #fff; font-size: 250px;}
 
 <!-- BEGIN ERROR -->
 <div class="wrap">
-  <i class="fa"></i>
-  <div id="error"></div>
+  <div id="error">
+    <img id="disney" src="https://s3.amazonaws.com/myfangate.com/radiodisneyapp/radiodisneylogo.jpg">
+    <h1>Please Select Your Platform</h1>
+    <div id="logowrap">
+      <span class="apple">
+        <a href="http://bit.ly/1h4tYaU"><img src="https://s3.amazonaws.com/myfangate.com/radiodisneyapp/apple.jpg"></a>
+      </span>
+      <span class="google">
+        <a href="http://bit.ly/1f7t6Zj"><img src="https://s3.amazonaws.com/myfangate.com/radiodisneyapp/google.jpg"></a>
+      </span>
+    </div>
+  </div>
 </div>
 <!-- END ERROR -->
 
@@ -62,9 +112,7 @@ i{ color: #fff; font-size: 250px;}
   }
 //Other//
   else{
-    $("#error").html('Please use this URL on iOS or Android devices ONLY. Thank you!');
-    $(".fa").addClass("fa-exclamation-triangle");
-    ga('send', 'event', 'Detection', 'Device', 'Saw Error Page');
+    ga('send', 'event', 'Detection', 'Device', 'Not an iPhone or Android');
   }
 </script>
 
